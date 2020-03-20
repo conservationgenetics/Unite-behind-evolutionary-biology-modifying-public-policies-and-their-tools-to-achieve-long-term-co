@@ -100,7 +100,7 @@ Evolutivos<-ggplot(df_cat1, aes(fill=factor(Procesos, levels=c("Evolutionary bio
   guides(fill=guide_legend(title=""))+ xlab("")+ 
   scale_fill_manual(values=mycolors)+
   theme_pander(base_family = "Times New Roman", base_size = 16)+
-  labs(title = "B) Evolutionary biology") + scale_x_discrete(limits = positions1)+
+  labs(title = "B) Evolutionary context") + scale_x_discrete(limits = positions1)+
   theme(plot.title = element_text(hjust=0.5))+ 
   theme(axis.text.y = element_text(angle = 0, hjust = -.04))+ 
   theme(legend.position = c(.8, 0.3))
@@ -118,7 +118,7 @@ Ecologicos<-ggplot(df_PE,aes(fill= factor(Procesos, levels=c("Dispersion/Migrati
   scale_fill_manual(values = mycolors1) +
   scale_y_continuous(trans = 'reverse')+xlab("") + 
   theme(legend.position = c(0.3, 0.3),axis.text.y = element_blank(), axis.title.y = element_blank())+ 
-  labs(title = "A) Evolutionary processes", y = "Total")+ 
+  labs(title = "A) Evolutionary potential", y = "Total")+ 
   theme(plot.title = element_text(hjust=0.5))
 
 Ecologicos
