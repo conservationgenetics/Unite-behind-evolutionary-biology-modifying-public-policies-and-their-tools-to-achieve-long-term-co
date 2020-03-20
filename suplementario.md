@@ -1,8 +1,8 @@
-#Suplementario 1#
+# Suplementario 1 #
 
 Se muestra los resultados de Chi-squared test de los parámetros empleados entre las seis herramientas analizadas con base en nivel ecológico, carácter evolutivo y factor de cambio. De obtener resultados significativos se realizó la prueba pos hoc de residuos estandarizados para determinar si la frecuencias observada es mayor (+) o menor (-) a lo esperado por azar. 
 
-#####Tabla 1. Resultados de *X* ^2^ de los parámetros con caracter evolutivos de seis herramientas analizadas (*X-squared* = 31.71, df = 10, *p-value *= 0.001).
+##### Tabla 1. Resultados de *X*2 de los parámetros con caracter evolutivos de seis herramientas analizadas (*X-squared* = 31.71, df = 10, *p-value* = 0.001).
 
 | Tools |Indirect |Direct| Non-evolutionary|
 | ------ | ----------- |--------|-----------|
@@ -14,7 +14,7 @@ Se muestra los resultados de Chi-squared test de los parámetros empleados entre
 | IUCN   | 9 | 0 | 6
 
 
-#####Tabla 2. Resultados de *X* ^2^ de los parámetros con caracter de cambio en el tiempo de las seis herramientas analizadas (*X-squared* = 35.32, df = 5, *p-value *= 1.293e-06).
+##### Tabla 2. Resultados de *X*2 de los parámetros con caracter de cambio en el tiempo de las seis herramientas analizadas (*X-squared* = 35.32, df = 5, *p-value* = 1.293e-06).
 
 | Tools |Change |Non-Change| 
 | ----------- |--------|-----------|
@@ -25,7 +25,7 @@ Se muestra los resultados de Chi-squared test de los parámetros empleados entre
 | PSM    | 11 | 19 |
 | IUCN   | 15 | 0 (**-**)|
 
-#####Tabla 3. Resultados de *X* ^2^ de los parámetros con base en su nivel ecológico en seis herramientas analizadas (*X-squared* = 19.888, df = 10, *p-value *= 0.03).
+##### Tabla 3. Resultados de *X*2 de los parámetros con base en su nivel ecológico en seis herramientas analizadas (*X-squared* = 19.888, df = 10, *p-value* = 0.03).
 
 | Tools |Population |Community| Ecosystem|
 | ------ | ----------- |--------|-----------|
