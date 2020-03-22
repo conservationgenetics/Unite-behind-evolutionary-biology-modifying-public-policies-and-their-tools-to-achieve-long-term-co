@@ -23,47 +23,38 @@ fonts()
 
 ####### Figure 2 #####
 df<-read_excel("../data/database_parameters.xlsx",
-               sheet = "Clasificación de parámetros", col_names = T)%>% 
+               sheet = "Parameters_Class", col_names = T)%>% 
   filter(Change_factor== "1")
 
-df$Procesos[df$Procesos == "1"] <- "Habitat"
-df$Procesos[df$Procesos == "2"] <- "Demography"
-df$Procesos[df$Procesos == "3"] <- "Interactions"
-df$Procesos[df$Procesos == "4"] <- "Evolutionary biology"
+df$Processes[df$Processes == "1"] <- "Habitat"
+df$Processes[df$Processes == "2"] <- "Demography"
+df$Processes[df$Processes == "3"] <- "Interactions"
+df$Processes[df$Processes == "4"] <- "Evolutionary biology"
 
-df$Biologia_Evolutiva[df$Biologia_Evolutiva == "1"] <- "Variation"
-df$Biologia_Evolutiva[df$Biologia_Evolutiva == "2"] <- "Reproduction"
-df$Biologia_Evolutiva[df$Biologia_Evolutiva == "3"] <- "Selection"
-df$Biologia_Evolutiva[df$Biologia_Evolutiva == "4"] <- "Dispersion/Migration"
+df$Evolutionary_biology[df$Evolutionary_biology == "1"] <- "Variation"
+df$Evolutionary_biology[df$Evolutionary_biology == "2"] <- "Reproduction"
+df$Evolutionary_biology[df$Evolutionary_biology == "3"] <- "Selection"
+df$Evolutionary_biology[df$Evolutionary_biology == "4"] <- "Dispersion/Migration"
 
-df1<-df%>% mutate(Presencia= rep(1,nrow(df)))%>% 
+df1<-df%>% mutate(Value= rep(1,nrow(df)))%>% 
   filter(Change_factor== "1")%>%
-  reshape2::dcast(Procesos~ Tools, value.var = "Presencia", fun= sum)%>%
-  rename(Procesos=Procesos)%>% # rename para hacer el match con la base
-  filter(Procesos != "????")
-
-df2<-df %>% mutate(Presencia= rep(1,nrow(df)))%>% 
-  filter(Change_factor== "1")%>%
-  reshape2::dcast(Biologia_Evolutiva~ Tools, value.var = "Presencia", fun= sum)%>%
-  rename(Procesos=Biologia_Evolutiva)%>% # rename para hacer el match con la base
-  filter(Procesos != "????")
+  reshape2::dcast(Processes~ Tools, value.var = "Value", fun= sum)
 
 #### Dataframe ####
-df3<-df%>% mutate(Presencia= rep(1,nrow(df)))%>%
-  reshape2::dcast(Biologia_Evolutiva~ Tools, value.var = "Presencia", fun= sum)%>%
-  rename(Procesos=Biologia_Evolutiva)%>% 
-    filter(Procesos != "NA") %>%
+df2<-df%>% mutate(Value= rep(1,nrow(df)))%>%
+  reshape2::dcast(Evolutionary_biology ~ Tools, value.var = "Value", fun= sum)%>%
+  rename(Processes=Evolutionary_biology)%>%
     bind_rows(df1)%>%
-  gather(Tools, Total, 2:7) %>% filter(Procesos != "X")
+  gather(Tools, Total, 2:7)
 
-# Biologia Evolutiva #  
-df_cat1<-df3%>% filter(Procesos %in% c("Habitat", 
+# Evolutionary Biology #  
+df_cat1<-df2%>% filter(Processes %in% c("Habitat", 
                                           "Demography", 
                                           "Interactions",
                                           "Evolutionary biology"))
 
-# Procesos evolutovos #  
-df_PE<-df3%>% filter(Procesos %in% c("Variation", 
+# Evolutionary Processes #  
+df_PE<-df2%>% filter(Processes %in% c("Variation", 
                                   "Reproduction", 
                                   "Selection",
                                   "Dispersion/Migration"))
@@ -90,8 +81,8 @@ mycolors1<-c("#468c5f",
             "#c3ab44",
             "#b44956")
 
-#### Plot ####
-Evolutivos<-ggplot(df_cat1, aes(fill=factor(Procesos, levels=c("Evolutionary biology",
+#### Plots ####
+Evolutionary<-ggplot(df_cat1, aes(fill=factor(Processes, levels=c("Evolutionary biology",
                                                                   "Interactions",
                                                                   "Demography",
                                                                   "Habitat")), y=Total, x=Tools)) + 
@@ -104,9 +95,8 @@ Evolutivos<-ggplot(df_cat1, aes(fill=factor(Procesos, levels=c("Evolutionary bio
   theme(plot.title = element_text(hjust=0.5))+ 
   theme(axis.text.y = element_text(angle = 0, hjust = -.04))+ 
   theme(legend.position = c(.8, 0.3))
-Evolutivos
 
-Ecologicos<-ggplot(df_PE,aes(fill= factor(Procesos, levels=c("Dispersion/Migration",
+Ecological<-ggplot(df_PE,aes(fill= factor(Processes, levels=c("Dispersion/Migration",
                                                             "Reproduction",
                                                             "Variation",
                                                             "Selection")),
@@ -121,10 +111,9 @@ Ecologicos<-ggplot(df_PE,aes(fill= factor(Procesos, levels=c("Dispersion/Migrati
   labs(title = "A) Evolutionary potential", y = "Total")+ 
   theme(plot.title = element_text(hjust=0.5))
 
-Ecologicos
-
-gtM <- ggplotGrob(Evolutivos)
-gtF <- ggplotGrob(Ecologicos)
+#Merging plots
+gtM <- ggplotGrob(Evolutionary)
+gtF <- ggplotGrob(Ecological)
 gt = cbind(gtF, gtM, size = NULL)
 
 # save figure a-b

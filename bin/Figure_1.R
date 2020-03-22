@@ -23,19 +23,19 @@ library(egg)
 df<-read_excel("../data/tabla_resumen.xlsx", sheet = 1, col_names = T)%>%
   gather(Category, Value, 2:10)%>%
   filter(Category != "Parameters")%>%
-  separate(Category, c("Category","Indicador"), sep = "_")%>%
+  separate(Category, c("Category","Indicator"), sep = "_")%>%
   group_by(Tools,Category)%>%
   mutate(Percentage=Value/sum(Value)*100)%>% arrange(Tools)
 
-df$Category[df$Category == "Character"] <- "B) Evolutionary character"
+df$Category[df$Category == "Character"] <- "B) Evolutionary nature"
 df$Category[df$Category == "EcologicalLevel"] <- "A) Ecological level"
 df$Category[df$Category == "Time"] <- "C) Change factor"
 
-df$Indicador<- factor(df$Indicador, levels=c("Population", "Community", "Ecosystem",
+df$Indicator<- factor(df$Indicator, levels=c("Population", "Community", "Ecosystem",
                                                   "Direct", "Indirect", "Non-evolutionary",
                                                   "Change", "Non-Change"))
 
-ggplot(df, aes(fill=Indicador, y=Value, x=Tools)) + 
+ggplot(df, aes(fill=Indicator, y=Value, x=Tools)) + 
   geom_bar(stat="identity") +
   xlab("")+theme_classic()+
   scale_fill_manual(values = c("#993404","#fe9929", "#fed98e",
@@ -53,20 +53,20 @@ ggsave("../figures/Figure_1.png", height = 6, width = 6, dpi = 300)
 
 df<-read_excel("../data/tabla_resumen.xlsx", sheet = 1, col_names = T)
 
-# trait evolutivos 
-Xsq<-chisq.test(df[,c(3:5)], simulate.p.value = TRUE) # Traits evolutivos
+# evolutionary traits 
+Xsq<-chisq.test(df[,c(3:5)], simulate.p.value = TRUE)
 Xsq # df = 10
 Xsq$observed
 Xsq$stdres
 
-# factor de cambio #
-Xsq<-chisq.test(df[,c(6:7)]) # Factor de cambio
+# change factor #
+Xsq<-chisq.test(df[,c(6:7)])
 Xsq
 Xsq$observed
 Xsq$stdres
 
-#factor ecologico 
-Xsq<-chisq.test(df[,c(8:10)], simulate.p.value = TRUE) # Factor ecologico
+# Ecological level #
+Xsq<-chisq.test(df[,c(8:10)], simulate.p.value = TRUE)
 Xsq # df = 10
 Xsq$observed
 Xsq$stdres
