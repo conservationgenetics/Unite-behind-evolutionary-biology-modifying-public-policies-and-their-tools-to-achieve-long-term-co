@@ -17,13 +17,13 @@ Article type:
 * Policy brief*
 
 Manuscript ID:
-* PENDIENTE
+* PENDING
 
 Received on:
-* PENDIENTE
+* PENDING
 
 Revised on:
-* PENDIENTE
+* PENDING
 
 Frontiers website link:
 www.frontiersin.org/journals/marine-science
@@ -31,14 +31,12 @@ www.frontiersin.org/journals/marine-science
 
 ### Abstract
 
-PENDIENTE
+PENDING
 
 
-### The scripts used in this paper are presented
+### Scripts used in this paper are presented
 
-La base de datos con los parámetros de las seis herramientas analizadas se encuentran en la carpeta  `./data`.  Las figuras asociadas al artículo están en `./figures`. 
-El código para reproducir los métodos y construir las graficas se encuentran en `./bin`. 
-
+The database with the parameters of six analyzed tools are in the directory `./data`. Associated figures are in `./figures`. Code to replicate methods and make plots is in `./bin`.
 
 
 ![](https://scontent.fmex15-1.fna.fbcdn.net/v/t1.0-9/58647157_2366712990265853_5613871617101791232_n.png?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=AS_k0NnjJNEAX98HIA7&_nc_ht=scontent.fmex15-1.fna&oh=2e0d08153d598867d8bde6c26154e5c8&oe=5E99E527)
