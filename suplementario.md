@@ -1,6 +1,6 @@
 # Supplementary 1 #
 
-Show the Chi-squared test results of the parameters used in six tools analyzed based on ecological level, evolutionary nature and change factor. When obtain significant results we perform pos hoc test of standarized residual to determine if the observed frequences is higher (+) or lower (-) than expected by chance.
+Chi-squared test results of the parameters used in six tools analyzed based on ecological level, evolutionary nature and change factor are presented. When obtain significant results we perform pos hoc test of standarized residual to determine if the observed frequences is higher (+) or lower (-) than expected by chance.
 
 ##### Table 1. Chi-squared test results of parameters with Evolutionary nature of six analyzed tools (*X-squared* = 31.71, df = 10, *p-value* = 0.001).
 
