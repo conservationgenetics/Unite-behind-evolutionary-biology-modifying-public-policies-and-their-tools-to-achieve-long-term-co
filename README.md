@@ -36,7 +36,7 @@ PENDING
 
 ### Scripts used in this paper are presented
 
-The database with the parameters of six analyzed tools are in the directory `./data`. Associated figures are in `./figures`. Code to replicate methods and make plots is in `./bin`.
+The databases with the parameters of six analyzed tools are in the directory `./data`. Associated figures are in `./figures`. Codes to replicate methods and make plots are in `./bin`.
 
 
 ![](https://scontent.fmex15-1.fna.fbcdn.net/v/t1.0-9/58647157_2366712990265853_5613871617101791232_n.png?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=AS_k0NnjJNEAX98HIA7&_nc_ht=scontent.fmex15-1.fna&oh=2e0d08153d598867d8bde6c26154e5c8&oe=5E99E527)
